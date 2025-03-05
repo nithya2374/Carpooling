@@ -1,0 +1,144 @@
+       *
+       {
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+       }
+       
+       body
+       {
+            
+            background: linear-gradient(rgba(4,9,30,0.9),rgba(4,9,30,0.9)),url('bg\ img.png');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            
+        }
+
+        .head
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box
+        {
+            background:rgba(255, 255, 255, 0.9);
+            width: 420px; 
+            border-radius: 10px;
+            box-shadow: 0 2px 4px white;
+            overflow: hidden;
+        }
+
+        .header
+        {
+            padding: 16px;
+            text-align: center;
+            background: darkblue;
+            color: white;
+        }
+
+        .header h1
+        {
+            margin: 0;
+            font-size: 20px;
+        }
+
+
+        .nav
+        {
+            display: flex;
+            justify-content: space-between;
+            background: lightgray;
+            padding: 9px 15px;
+            font-size: 14px;
+        }
+
+        .nav a 
+        {
+            text-decoration: none;
+            color:darkslateblue;
+            font-weight: bold;
+        }
+
+        .info
+        {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .info h2 
+        {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #3e4684;
+        }
+
+        .info p
+        {
+              font-size: 14px;
+              color: #2c325d;
+              margin:5px;
+              font-weight: 100;
+        }
+
+        .inputs
+        {
+            margin-bottom: 15px;
+            
+        }
+
+        .inputs input, .inputs select 
+        {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .inputs input::placeholder
+        {
+            color: black;
+            font-size: 13px;
+        }
+
+        .inputs input:focus, .inputs select:focus 
+        {
+            border-color: #3e4684;
+            outline: none;
+        }
+
+        .btn
+        {
+            width: 100%;
+            padding: 10px;
+            background: darkslateblue;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition:  0.3s;
+        }
+
+        
+        .last
+        {
+            margin-top: 5px;
+            padding: 2px;
+            background: lightgray;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #3e4684;
+            font-size: 14px;
+            font-weight: 100;
+        }
+           

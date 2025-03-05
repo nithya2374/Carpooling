@@ -1,0 +1,106 @@
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    height: 100vh;
+    width:100%;
+    background: linear-gradient(rgba(4,9,30,0.9), rgba(4,9,30,0.9)) ,url('bg\ img.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.header
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    
+}
+
+.box
+{
+    height: auto;
+    width:440px;
+    background:gainsboro;
+    padding: 22px 28px;
+    border-radius: 15px;
+    box-shadow: 0 0 4px 2px whitesmoke;
+    margin-top: 3%;
+
+}
+
+.box h1
+{
+    text-align: center;
+    font-size: 30px;
+    color: darkblue;
+}
+
+.box .inputs
+{
+    height: 43px;
+    width:100%;
+    /*background: pink;*/
+    margin: 25px 0;
+    
+}
+
+.inputs input
+{
+    height:100%;
+    width:100%;
+    background: white;
+    border:none;
+    outline: none;
+    border:3px solid lavender;
+    border-radius: 40px;
+    font-size: 14px;
+    color: black;
+    padding: 14px 45px 14px 20px;
+}
+
+.inputs input::placeholder
+{
+    color: rgba(4,9,30,0.9);
+    font-weight: 200;
+    font-size: 14px;
+}
+
+.text
+{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 100;
+    text-decoration: underline;
+    cursor: pointer;
+    color: darkblue;
+    
+}
+
+.btn
+{
+    height: 32px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border: 2px solid darkblue;
+    background: darkblue;
+    border-radius: 40px;
+    font-size:15px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+.btn:hover
+{
+    transform: translateY(-3px);
+    background:darkslateblue;
+}

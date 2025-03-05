@@ -1,0 +1,177 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+}
+
+
+body
+{
+    
+    background: linear-gradient(rgba(4,9,30,0.9),rgba(4,9,30,0.9)),url('bg\ img.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 150vh;
+}
+
+.box
+{
+    background:gainsboro;
+    width: 90%;
+    max-width: 480px;
+    border-radius: 15px;
+    box-shadow: 0 5px 8px whitesmoke;
+    padding: 30px;
+    text-align: center;
+    margin:3% 2%;
+}
+
+.head
+{
+    font-size: 30px;
+    font-weight: bold;
+    color: darkblue;
+    margin-bottom: 15px;
+}
+
+.profile-img 
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 auto 15px;
+    border: 3px solid #3e4684;
+}
+
+.change-photo 
+{
+    display: inline-block;
+    margin-bottom: 15px;
+    color: black;
+    background: whitesmoke;
+    border: 3px solid whitesmoke;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition:  0.3s;
+    font-weight: bold;
+}
+
+.change-photo:hover 
+{
+    background: darkslateblue;
+    border: 2px solid darkslateblue;
+    color: white;
+    border-radius: 5px;
+}
+
+.inputs
+{
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label 
+{
+    display: block;
+    font-size: 17px;
+    color: darkslateblue;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-left: 3%;
+}
+
+input, textarea 
+{
+    width: 80%;
+    padding: 10px 35px  10px  15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #f8f9fc;
+    border:2px solid whitesmoke;
+}
+
+input:focus, textarea:focus 
+{
+    border: 1px solid #3e4684;
+    outline: none;
+    box-shadow: 0 0 5px rgba(62, 70, 132, 0.5);
+}
+
+textarea 
+{
+    height: 100px;
+    resize: vertical;
+}
+
+.form-actions
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn 
+{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn-save 
+{
+    background: #3e4684;
+    color: #fff;
+}
+
+.btn-cancel
+{
+    background: white;
+    color: #333;
+    border:2px solid white;
+}
+
+.btn-save:hover 
+{
+    background: #2d3463;
+    transform: translateY(-2px);
+}
+
+.btn-cancel:hover 
+{
+    background: white;
+    transform: translateY(-2px);
+
+}
+
+.footer 
+{
+    margin-top: 15px;
+    font-size: 15px;
+    color:black;
+}
+
+.footer a 
+{
+    color: #3e4684;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover 
+{
+    text-decoration: underline;
+    font-weight: bold;
+}
