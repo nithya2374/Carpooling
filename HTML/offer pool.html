@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer Carpool</title>
+    <link rel="stylesheet" href="offer pool.css">      
+</head>
+
+<body>
+    <div class="box">
+
+        <div class="head">
+            <h1>Welcome, John Doe</h1>
+        </div>
+
+        <div class="menu">
+            <a href="offer Ride.html">Find Carpool</a>
+            <a href="offer pool.html">Offer Carpool</a>
+            <a href="profile.html">Profile</a>
+        </div>
+
+        <div class="content">
+            <h2>Offer a Carpool</h2>
+            <p>Help your colleagues, Reduce traffic, and Save the environment!</p>
+
+            <form action="">
+
+                <div class="inputs">
+                    <input type="text" name="from" placeholder="Starting Point" required>
+                </div>
+
+                <div class="inputs">
+                    <input type="text" name="to" placeholder="Destination" required>
+                </div>
+
+                <div class="inputs">
+                    <input type="text" name="via" placeholder="Via (optional)">
+                </div>
+
+                <div class="inputs">
+                    <input type="number" name="seats" placeholder="Available Seats" required>
+                </div>
+
+                <div class="inputs">
+                    <input type="date" name="date" required>
+                </div>
+
+                <div class="inputs">
+                    <input type="time" name="time" required>
+                </div>
+
+                <div class="inputs">
+                    <select name="carType" required>
+                        <option value="">Select Car Type</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="hatchback">Hatchback</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn" >Submit Offer</button>
+            </form>
+
+            <div class="map-placeholder">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093745!2d144.9556513156626!3d-37.81732744202182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d2cfecf7d50b!2sGoogle%20Australia!5e0!3m2!1sen!2sin!4v1605903506429!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>
