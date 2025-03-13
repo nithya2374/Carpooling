@@ -9,7 +9,7 @@ body
 {
     height: 100vh;
     width:100%;
-    background: linear-gradient(rgba(4,9,30,0.9), rgba(4,9,30,0.9)) ,url('bg\ img.png');
+    background: linear-gradient(rgba(4,9,30,0.9), rgba(4,9,30,0.9)) ,url('../Images/bg\ img.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,11 +29,11 @@ body
 {
     height: auto;
     width:440px;
-    background:gainsboro;
+    background:darkgrey;
     padding: 22px 28px;
     border-radius: 15px;
-    box-shadow: 0 0 4px 2px whitesmoke;
-    margin-top: 3%;
+    box-shadow: 0 0 4px 2px black;
+    margin-top: 2%;
 
 }
 
@@ -41,12 +41,12 @@ body
 {
     text-align: center;
     font-size: 30px;
-    color: darkblue;
+    color: navy;
 }
 
 .box .inputs
 {
-    height: 43px;
+    height: 40px;
     width:100%;
     /*background: pink;*/
     margin: 25px 0;
@@ -57,14 +57,19 @@ body
 {
     height:100%;
     width:100%;
-    background: white;
+    background: whitesmoke;
     border:none;
     outline: none;
     border:3px solid lavender;
     border-radius: 40px;
-    font-size: 14px;
+    font-size: 15px;
     color: black;
     padding: 14px 45px 14px 20px;
+}
+
+.inputs input:hover
+{
+    border:2px solid navy;
 }
 
 .inputs input::placeholder
@@ -81,7 +86,7 @@ body
     font-weight: 100;
     text-decoration: underline;
     cursor: pointer;
-    color: darkblue;
+    color:black;
     
 }
 
@@ -91,8 +96,8 @@ body
     width: 100%;
     border: none;
     outline: none;
-    border: 2px solid darkblue;
-    background: darkblue;
+    border: 2px solid navy;
+    background:navy;
     border-radius: 40px;
     font-size:15px;
     color: white;
@@ -102,5 +107,5 @@ body
 .btn:hover
 {
     transform: translateY(-3px);
-    background:darkslateblue;
+    
 }

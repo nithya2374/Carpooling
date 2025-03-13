@@ -9,7 +9,7 @@
        body
        {
             
-            background: linear-gradient(rgba(4,9,30,0.9),rgba(4,9,30,0.9)),url('bg\ img.png');
+            background: linear-gradient(rgba(4,9,30,0.9),rgba(4,9,30,0.9)),url('../Images/bg\ img.png ');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -28,10 +28,10 @@
 
         .box
         {
-            background:rgba(255, 255, 255, 0.9);
+            background:gainsboro;
             width: 420px; 
-            border-radius: 10px;
-            box-shadow: 0 2px 4px white;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px black;
             overflow: hidden;
         }
 
@@ -39,7 +39,7 @@
         {
             padding: 16px;
             text-align: center;
-            background: darkblue;
+            background: navy;
             color: white;
         }
 
@@ -54,21 +54,26 @@
         {
             display: flex;
             justify-content: space-between;
-            background: lightgray;
-            padding: 9px 15px;
+            background:ghostwhite;
+            padding: 10px 15px;
             font-size: 14px;
         }
 
         .nav a 
         {
             text-decoration: none;
-            color:darkslateblue;
+            color:navy;
             font-weight: bold;
+        }
+
+        .nav a:hover
+        {
+            text-decoration: underline;
         }
 
         .info
         {
-            padding: 20px;
+            padding: 24px;
             text-align: center;
         }
 
@@ -76,15 +81,15 @@
         {
             font-size: 18px;
             margin-bottom: 15px;
-            color: #3e4684;
+            color:navy;
         }
 
         .info p
         {
               font-size: 14px;
-              color: #2c325d;
-              margin:5px;
-              font-weight: 100;
+              color:black;
+              margin:14px;
+              font-weight:bold;
         }
 
         .inputs
@@ -96,11 +101,12 @@
         .inputs input, .inputs select 
         {
             width: 100%;
-            padding: 8px;
+            padding: 8px 28px 7px 5px;
             font-size: 14px;
             border: 2px solid white;
-            border-radius: 10px;
+            border-radius: 15px;
             transition: border-color 0.3s ease;
+            background: whitesmoke;
         }
 
         .inputs input::placeholder
@@ -111,7 +117,7 @@
 
         .inputs input:focus, .inputs select:focus 
         {
-            border-color: #3e4684;
+            border: 2px solid navy;
             outline: none;
         }
 
@@ -119,7 +125,7 @@
         {
             width: 100%;
             padding: 10px;
-            background: darkslateblue;
+            background: navy;
             color: white;
             font-size: 16px;
             font-weight: bold;
@@ -129,16 +135,20 @@
             transition:  0.3s;
         }
 
-        
+        .btn:hover
+        {
+            transform: translateY(-3px);
+        }
+
         .last
         {
             margin-top: 5px;
             padding: 2px;
-            background: lightgray;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            color: #3e4684;
-            font-size: 14px;
+            background:darkgrey;
+            border: 1px solid white;
+            border-radius: 10px;
+            color: black;
+            font-size: 12px;
             font-weight: 100;
         }
            

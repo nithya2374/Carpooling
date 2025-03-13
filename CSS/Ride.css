@@ -7,7 +7,7 @@
 
 body 
 {
-    background: linear-gradient(rgba(4,9,30,0.9),rgba(4,9,30,0.9)),url('bg\ img.png');
+    background: linear-gradient(rgba(4,9,30,0.9),rgba(4,9,30,0.9)),url('../Images/bg\ img.png');
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat; 
@@ -26,14 +26,14 @@ body
     max-width: 1000px;
     background: gainsboro;
     border-radius: 10px;
-    box-shadow: 0 6px 6px whitesmoke;
+    box-shadow: 0 6px 6px black;
     overflow: hidden;
 }
 
 
 .head
 {
-    background-color: #3e4684; 
+    background-color:navy; 
     color: white;
     padding: 10px 18px;
     margin-bottom: 6px;
@@ -113,7 +113,7 @@ body
 .btn 
 {
     margin-top: 15px;
-    background-color: #3e4684; 
+    background-color:navy;
     color: white;
     border: none;
     padding: 10px;
@@ -126,7 +126,7 @@ body
 
 .btn:hover
 {
-    background-color:darkslategray;
-    transform: translateY(-2px);
+
+    transform: translateY(-3px);
     
 }
