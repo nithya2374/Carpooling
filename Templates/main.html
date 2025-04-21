@@ -3,9 +3,9 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width,initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Carpooling</title>
-        <link rel="stylesheet" href="../CSS/main.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/main.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;
@@ -17,11 +17,11 @@
         <section class="header">
 
             <nav>
-                <img src="../Images/carpool.png" class="logo"  alt="logo">
+                <img src="{{ url_for('static', filename='Images/carpool.png') }}" class="logo"  alt="logo">
                 <div class="links">
                     <ul>
-                        <li><a href="log.html">LOGIN</a></li>
-                        <li><a href="sign.html">SIGNUP</a></li>
+                        <li><a href="{{ url_for('log') }}">LOGIN</a></li>
+                        <li><a href="{{ url_for('sign') }}">SIGNUP</a></li>
                     </ul>
                 </div>    
             </nav>

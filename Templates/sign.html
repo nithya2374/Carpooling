@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="{{ url_for('static' , filename='CSS/sign.css') }}">
+
+    <style>
+        /* Flash message styles */
+        .flash-message 
+        {
+            padding: 10px;
+            margin: 10px auto;
+            width: 75%;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .success { background-color: #d4edda; color: #155724; }  
+        .danger { background-color: #f8d7da; color: #721c24; }  
+
+        .alert 
+        {
+           padding: 10px;
+           margin: 10px auto;
+           width: 75%;
+           text-align: center;
+           border-radius: 8px;
+           font-size: 16px;
+           font-weight: bold;
+         }
+
+    </style>
+
+    <script>
+        // Auto redirect after 3 seconds if success message appears
+        setTimeout(function () {
+            let flashMessage = document.getElementById('flash-message');
+            if (flashMessage) {
+                  flashMessage.style.display='none';
+            }
+        }, 5000);
+    </script>
+
+</head>
+
+<body>
+
+    <section class="header">
+        
+        <div class="box">
+
+             <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+               {% if messages %}
+                 <div id="flash-message">
+                   {% for category, message in messages %}
+                       <div class="alert alert-{{ category }}">{{ message }}</div>
+                   {% endfor %}
+                 </div>
+               {% endif %}
+            {% endwith %}
+
+
+            <form action="{{ url_for('sign') }}" method="post">
+
+                <h1>Create a New Account</h1>
+                <div class="inputs">
+                    <input type="text" name="firstname" placeholder="FirstName" required>
+                </div>
+                <div class="inputs">
+                    <input type="text" name="lastname" placeholder="LastName" required>
+                </div>
+                <div class="inputs">
+                    <input type="number" name="contact" placeholder="Contact number" required>
+                </div>
+                <div class="inputs">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="inputs">
+                    <input type="password" name="password" placeholder="Pick a password" required>
+                </div>
+
+                <p class="text">Use at least one letter,one numerical and seven characters </p>
+
+                <div class="inputs">
+                    <input type="password" name="confirm_password" placeholder="Confirm password" required>
+                </div>
+
+                <button type="submit" class="btn">SIGNIN</button>    
+
+            </form>
+
+
+            <div class="footer">
+                <p>Already have an account? <a href="{{ url_for('log') }}">Login here</a></p>
+            </div>
+            
+        </div>
+
+        
+    </section>
+    
+</body>
+</html>

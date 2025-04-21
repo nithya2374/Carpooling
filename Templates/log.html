@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for ('static' , filename='CSS/log.css') }}">
+    <style>
+        /* Flash message styles */
+        .flash-message 
+        {
+            padding: 12px;
+            margin: 10px auto;
+            width: 80%;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .success { background-color: whitesmoke; color: #155724; }  
+        .danger { background-color: #f8d7da; color: #721c24; }  
+
+        /* Add close button */
+        .flash-message .close-btn {
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            color: red;
+        }
+
+    </style>
+    
+</head>
+
+<body>
+    <section class="header">
+        
+        <div class="box">
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">
+                            {{ message }}
+                            <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        </div>
+                    {% endfor %}
+
+                    {% if 'success' in messages[0] %}
+                        <script>
+                             setTimeout(function() {
+                                  window.location.href = "{{ url_for('home') }}";
+                                    }, 4000); // 4 seconds delay
+                        </script>
+                    {% endif %}
+                {% endif %}
+            {% endwith %}
+            
+
+            <form action="/log" method="post">
+
+                <h1>Login</h1>
+                <div class="user">
+                    <input type="text" name="email" placeholder="Email" required>
+                </div>
+
+                <div class="user">
+                    <input type="password" name="password" placeholder="password" required>
+                </div>
+
+                <div class="remember">
+                    <label><input type="checkbox">Remember Me</label>
+                    <a href="">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="btn">LOGIN</button>
+
+                <div class="register">
+                    <p>Dont have an account?<a href="{{ url_for('sign') }}">SIGNUP</a></p>
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+    <script>
+
+        // Automatically hide flash messages after 10 seconds
+        setTimeout(function () {
+            let messages = document.querySelectorAll('.flash-message');
+            messages.forEach(msg => {
+                msg.style.opacity = "0";
+                setTimeout(() => msg.style.display = "none", 10000);
+            });
+        }, 10000);
+        
+    </script>
+    
+</body>
+</html>

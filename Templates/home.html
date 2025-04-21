@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title> 
-    <link rel="stylesheet" href="../CSS/home.css">
+    <link rel="stylesheet" href="{{ url_for ('static' , filename='CSS/home.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -17,8 +17,8 @@
         <p>Select one of the options below to get started with<br> your journey!</p>
 
         <div class="btns">
-            <a href="../HTML/offer pool.html">Offer a Ride</a>
-            <a href="../HTML/offer Ride.html">Find a Ride</a>
+            <a href="{{ url_for('offer') }}">Offer Ride</a>
+            <a href="{{ url_for('find') }}">Find  Ride</a>
         </div>
 
         <footer>

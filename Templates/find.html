@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Find Ride</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/find.css') }}">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <p>Welcome, {{ session['username'] }}!</p>
+        <div class="nav-links">
+            <a href="/home">Home</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="ride-box">
+            <h2>Find a Ride</h2>
+
+            <div class="buttons">
+                <a href="/offer"><button class="tab-button">Offer Ride</button></a>
+                <button class="tab-button active">Find Ride</button>
+            </div>
+
+            <form action="/ride_results" method="POST">
+                <input type="text" name="from" placeholder="From" required>
+                <input type="text" name="to" placeholder="To" required>
+                <input type="date" name="date" required>
+                <input type="time" name="time" required>
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

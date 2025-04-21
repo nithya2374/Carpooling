@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Offer Ride</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/offer.css') }}">
+</head>
+
+<body>
+
+    <div id="message" class="flash-box"></div> <!-- Move here -->
+
+    <div class="navbar">
+        <p>Welcome, {{ session['username'] }}!</p>
+        <div class="nav-links">
+            <a href="/home">HOME</a>
+            <a href="/profile">PROFILE</a>
+            <a href="/logout">LOGOUT</a>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <div class="ride-box">
+            <h2>Offer a Ride</h2>
+
+            <div class="buttons">
+                <a href="/find"><button class="tab-button">Find Ride</button></a>
+                <button class="tab-button active">Offer Ride</button>
+            </div>
+
+            <form id="offer" action='/offer' method="POST">
+                <input type="text" name="source" placeholder="From" required>
+                <input type="text" name="destination" placeholder="To" required>
+                <input type="text" name="via" placeholder="Via" required>
+                <input type="date" name="date" required>
+                <input type="time" name="time" required>
+                <input type="number" name="seats" placeholder="Available seats" required>
+                <button type="submit" class="search-btn">Submit</button>
+            </form>
+
+
+            <div class="map-placeholder">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093745!2d144.9556513156626!3d-37.81732744202182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d2cfecf7d50b!2sGoogle%20Australia!5e0!3m2!1sen!2sin!4v1605903506429!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+    document.getElementById('offer').addEventListener('submit', async function(event) {
+        event.preventDefault();
+    
+        const formData = new FormData(this);
+    
+        try 
+        {
+            const response = await fetch('/offer', {
+                method: 'POST',
+                body: formData
+            });
+    
+            const data = await response.json();
+    
+            const msgBox = document.getElementById('message');
+            msgBox.textContent = data.message;
+            msgBox.classList.remove('success', 'error');
+            msgBox.classList.add(data.success ? 'success' : 'error');
+    
+            // Reset animation
+            msgBox.style.display = 'none';
+            void msgBox.offsetWidth;
+            msgBox.style.display = 'block';
+            msgBox.style.animation = 'slideDown 0.5s ease-out forwards';
+    
+            // Auto-hide after 7 seconds
+            setTimeout(() => 
+            {
+                msgBox.style.display = 'none';
+            }, 5000);
+    
+            if (data.success) this.reset();
+    
+        } catch (err) {
+            const msgBox = document.getElementById('message');
+            msgBox.textContent = 'Something went wrong.';
+            msgBox.classList.remove('success');
+            msgBox.classList.add('error');
+            msgBox.style.display = 'block';
+    
+            // Hide after 3 seconds
+            setTimeout(() => {
+                msgBox.style.display = 'none';
+            }, 5000);
+        }
+    });
+    </script>
+    
