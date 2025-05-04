@@ -31,10 +31,11 @@
             {% for ride in rides %}
             <div class="box">
                 <div class="details">
-                    <p><strong>Driver:</strong> {{ ride[6] }}</p>
+                    <p><strong>Driver:</strong> {{ ride[6] }} {{ ride[7] }}</p>
                     <p><strong>From:</strong> {{ ride[0] }} | <strong>To:</strong> {{ ride[1] }}</p>
                     <p><strong>Via:</strong> {{ ride[5] if ride[5] else 'N/A' }}</p>
                     <p><strong>Date:</strong> {{ ride[2] }} | <strong>Time:</strong> {{ ride[3] }}</p>
+                    <p><strong>Contact:</strong> {{ ride[8] }}</p>
                 </div>
                 <button type="button" class="btn">Contact</button>
             </div>

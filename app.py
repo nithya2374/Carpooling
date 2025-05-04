@@ -120,15 +120,25 @@ def offer():
         time = request.form.get('time')
         seats= request.form.get('seats')
         via = request.form.get('via')
-        ride_giver_id = session.get('username')
+        email = session.get('email')
 
-        if not ride_giver_id:
-            return jsonify({'message': 'User not logged in.', 'success': False})    
+        if not email:
+           return jsonify({'message': 'User not logged in.', 'success': False})    
 
         try:
             # Connect to database and insert ride data
             conn = sqlite3.connect('carpool.db')
             cursor = conn.cursor()
+
+            # Get user ID from username
+            cursor.execute('SELECT id FROM users WHERE  email= ?', (email,))
+            result = cursor.fetchone()
+
+            if not result:
+                return jsonify({'message': 'User not found.', 'success': False})
+
+            ride_giver_id = result[0]  # This is the integer ID
+
             cursor.execute('''
                 INSERT INTO ride (ride_giver_id, origin, destination, date, time, available_seats, via)
                 VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -247,15 +257,21 @@ def ride_results():
     ride_data = session.pop('ride_search', None)
     form_data = ride_data if ride_data else request.form
 
-    source = form_data.get('from')
-    destination = form_data.get('to')
-    date = form_data.get('date')  # optional
+    source = form_data.get('from','').strip()
+    destination = form_data.get('to','').strip()
 
-    conn = sqlite3.connect("carpool.db")
-    cursor = conn.cursor()
+    date = form_data.get('date','').strip()  # optional
+    time = form_data.get('time','').strip()
 
-    if date:
-        cursor.execute("""
+    if not (source and destination and date and time):
+        flash("All fields (origin, destination, date, time) must be filled.", "warning")
+        return render_template('ride_results.html', rides=[])
+
+    try:
+        conn = sqlite3.connect("carpool.db")
+        cursor = conn.cursor()
+
+        query="""
             SELECT 
                 ride.origin, 
                 ride.destination, 
@@ -268,27 +284,19 @@ def ride_results():
                 users.contact
             FROM ride
             JOIN users ON ride.ride_giver_id = users.id
-            WHERE ride.origin = ? AND ride.destination = ? AND ride.date = ?
-        """, (source, destination, date))
-    else:
-        cursor.execute("""
-            SELECT 
-                ride.origin, 
-                ride.destination, 
-                ride.date,
-                ride.time, 
-                ride.available_seats, 
-                ride.via,
-                users.firstname, 
-                users.lastname, 
-                users.contact
-            FROM ride
-            JOIN users ON ride.ride_giver_id = users.id
-            WHERE ride.origin = ? AND ride.destination = ?
-        """, (source, destination))
+            WHERE LOWER(ride.origin) = LOWER(?) AND LOWER(ride.destination) = LOWER(?) AND ride.date = ? AND ride.time=?
+        """
+        params =( source, destination, date, time)
+        cursor.execute(query, params)
+        rides= cursor.fetchall()
 
-    rides = cursor.fetchall()
-    conn.close()
+    except Exception as e:
+        flash("an error occured while fetching ride details","danger")
+        print("Database error: ",e)
+        rides=[]
+    finally:
+
+        conn.close()
 
     return render_template('ride_results.html', rides=rides)
 

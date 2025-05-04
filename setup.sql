@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS ride (
   date DATE NOT NULL,
   time TIME NOT NULL,
   available_seats INTEGER NOT NULL CHECK(available_seats >= 0),
+  via TEXT NOT NULL,
   FOREIGN KEY(ride_giver_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
